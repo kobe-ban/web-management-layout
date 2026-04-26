@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Theme Design Tokens
+   Centralized CSS custom properties for easy theming
+   ============================================================ */
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+
+  /* Primary palette */
+  --color-primary-50: #ecfdf5;
+  --color-primary-100: #d1fae5;
+  --color-primary-200: #a7f3d0;
+  --color-primary-300: #6ee7b7;
+  --color-primary-400: #34d399;
+  --color-primary-500: #10b981;
+  --color-primary-600: #059669;
+  --color-primary-700: #047857;
+  --color-primary-800: #065f46;
+  --color-primary-900: #064e3b;
+
+  /* Sidebar */
+  --color-sidebar: #0d2228;
+  --color-sidebar-hover: #173640;
+  --color-sidebar-active: #09161b;
+  --color-sidebar-text: #b8d9d2;
+  --color-sidebar-text-active: #ffffff;
+  --color-sidebar-border: #1f444d;
+
+  /* Header */
+  --color-header: #fffef7;
+  --color-header-text: #173b36;
+  --color-header-border: #d6ebe4;
+
+  /* Footer */
+  --color-footer: #f3fffb;
+  --color-footer-text: #4e746d;
+  --color-footer-border: #d4e9e1;
+
+  /* Main */
+  --color-main: #eaf7f2;
+
+  /* Layout sizing */
+  --width-sidebar: 260px;
+  --width-sidebar-collapsed: 72px;
+  --height-header: 64px;
+  --height-footer: 48px;
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+
+  --color-header: #132930;
+  --color-header-text: #e7f8f2;
+  --color-header-border: #245059;
+
+  --color-footer: #0d1f25;
+  --color-footer-text: #8ebcb2;
+  --color-footer-border: #1d3a42;
+
+  --color-main: #08191f;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  /* Primary colors */
+  --color-primary-50: var(--color-primary-50);
+  --color-primary-100: var(--color-primary-100);
+  --color-primary-200: var(--color-primary-200);
+  --color-primary-300: var(--color-primary-300);
+  --color-primary-400: var(--color-primary-400);
+  --color-primary-500: var(--color-primary-500);
+  --color-primary-600: var(--color-primary-600);
+  --color-primary-700: var(--color-primary-700);
+  --color-primary-800: var(--color-primary-800);
+  --color-primary-900: var(--color-primary-900);
+
+  /* Sidebar */
+  --color-sidebar: var(--color-sidebar);
+  --color-sidebar-hover: var(--color-sidebar-hover);
+  --color-sidebar-active: var(--color-sidebar-active);
+  --color-sidebar-text: var(--color-sidebar-text);
+  --color-sidebar-text-active: var(--color-sidebar-text-active);
+  --color-sidebar-border: var(--color-sidebar-border);
+
+  /* Header */
+  --color-header: var(--color-header);
+  --color-header-text: var(--color-header-text);
+  --color-header-border: var(--color-header-border);
+  --color-header-dark: #1e293b;
+  --color-header-text-dark: #f1f5f9;
+  --color-header-border-dark: #334155;
+
+  /* Footer */
+  --color-footer: var(--color-footer);
+  --color-footer-text: var(--color-footer-text);
+  --color-footer-border: var(--color-footer-border);
+  --color-footer-dark: #0f172a;
+  --color-footer-text-dark: #94a3b8;
+  --color-footer-border-dark: #1e293b;
+
+  /* Main */
+  --color-main: var(--color-main);
+  --color-main-dark: #0f172a;
+
+  /* Layout sizing */
+  --width-sidebar: 260px;
+  --width-sidebar-collapsed: 72px;
+  --height-header: 64px;
+  --height-footer: 48px;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #2f5d64;
+}
+
+@keyframes sidebarAmbient {
+  0%,
+  100% {
+    transform: translateY(0px);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translateY(-8px);
+    opacity: 0.65;
+  }
+}
+
+.sidebar-ambient {
+  animation: sidebarAmbient 6s ease-in-out infinite;
+}
+
+.sidebar-ambient-delayed {
+  animation: sidebarAmbient 7.5s ease-in-out infinite;
+  animation-delay: 1.2s;
+}
